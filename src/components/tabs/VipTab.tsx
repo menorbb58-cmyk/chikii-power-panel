@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import ModSwitch from "../ModSwitch";
 import ModButton from "../ModButton";
-import { Crown, Star, BadgeCheck, Gem, Sparkles, Award } from "lucide-react";
+import { Crown, BadgeCheck, Gem, Sparkles, Award, Gift } from "lucide-react";
+import { Infinity as InfinityIcon } from "lucide-react";
 
 const VipTab = () => {
   return (
@@ -56,13 +57,6 @@ const VipTab = () => {
           icon={<Crown className="w-4 h-4" />}
           variant="premium"
         />
-        
-        <ModSwitch 
-          label="Todas as Skins" 
-          description="Desbloqueie todas as skins"
-          defaultChecked={true}
-          icon={<Star className="w-4 h-4" />}
-        />
 
         <ModSwitch 
           label="Badge Exclusiva" 
@@ -82,6 +76,19 @@ const VipTab = () => {
           label="Recompensas Diárias 2x" 
           description="Dobro de recompensas"
           icon={<Award className="w-4 h-4" />}
+        />
+
+        <ModSwitch 
+          label="Presentes Ilimitados" 
+          description="Envie presentes sem limite"
+          icon={<Gift className="w-4 h-4" />}
+        />
+
+        <ModSwitch 
+          label="Acesso Vitalício" 
+          description="Nunca perca os benefícios"
+          icon={<InfinityIcon className="w-4 h-4" />}
+          variant="premium"
         />
       </div>
 

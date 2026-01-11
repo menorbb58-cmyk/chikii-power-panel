@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Gamepad2, X, Minus, Square } from "lucide-react";
+import { X, Minus, Square } from "lucide-react";
+import chikiiLogo from "@/assets/chikii-logo.png";
 
 interface PanelHeaderProps {
   title: string;
@@ -16,12 +17,16 @@ const PanelHeader = ({ title, version = "v3.0" }: PanelHeaderProps) => {
     >
       <div className="flex items-center justify-between px-4 py-2 bg-dark-purple rounded-t-lg">
         <div className="flex items-center gap-3">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          >
-            <Gamepad2 className="w-6 h-6 text-neon-cyan" />
-          </motion.div>
+          <motion.img
+            src={chikiiLogo}
+            alt="Chikii"
+            className="w-10 h-10 rounded-lg"
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 2, -2, 0]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
           <div>
             <h1 className="font-orbitron font-bold text-lg text-foreground neon-text tracking-wider">
               {title}

@@ -11,9 +11,16 @@ import NetworkTab from "./tabs/NetworkTab";
 import SecurityTab from "./tabs/SecurityTab";
 import PowerTab from "./tabs/PowerTab";
 import SettingsTab from "./tabs/SettingsTab";
+import AutomationTab from "./tabs/AutomationTab";
+import { soundManager } from "@/lib/sounds";
 
 const ChikiiPanel = () => {
   const [activeTab, setActiveTab] = useState("boost");
+
+  const handleTabChange = (tab: string) => {
+    soundManager.playClick();
+    setActiveTab(tab);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -25,6 +32,8 @@ const ChikiiPanel = () => {
         return <VipTab />;
       case "games":
         return <GamesTab />;
+      case "automation":
+        return <AutomationTab />;
       case "network":
         return <NetworkTab />;
       case "security":
@@ -62,7 +71,7 @@ const ChikiiPanel = () => {
           <PanelHeader title="CHIKII MOD PANEL" version="v3.0 PREMIUM" />
           
           <div className="flex">
-            <PanelSidebar activeTab={activeTab} onTabChange={setActiveTab} />
+            <PanelSidebar activeTab={activeTab} onTabChange={handleTabChange} />
             
             {/* Main content area */}
             <motion.div 

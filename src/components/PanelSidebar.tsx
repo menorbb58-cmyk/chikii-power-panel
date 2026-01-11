@@ -7,7 +7,8 @@ import {
   Settings, 
   Crown,
   Rocket,
-  Wifi
+  Wifi,
+  Workflow
 } from "lucide-react";
 
 interface SidebarItemProps {
@@ -50,6 +51,7 @@ const PanelSidebar = ({ activeTab, onTabChange }: PanelSidebarProps) => {
     { id: "coins", icon: <Coins className="w-5 h-5" />, label: "Moedas" },
     { id: "vip", icon: <Crown className="w-5 h-5" />, label: "VIP" },
     { id: "games", icon: <Gamepad2 className="w-5 h-5" />, label: "Jogos" },
+    { id: "automation", icon: <Workflow className="w-5 h-5" />, label: "Auto" },
     { id: "network", icon: <Wifi className="w-5 h-5" />, label: "Rede" },
     { id: "security", icon: <Shield className="w-5 h-5" />, label: "Segurança" },
     { id: "power", icon: <Zap className="w-5 h-5" />, label: "Power" },
