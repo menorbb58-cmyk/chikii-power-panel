@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ChikiiPanel from "@/components/ChikiiPanel";
-import { Gamepad2 } from "lucide-react";
+import chikiiLogo from "@/assets/chikii-logo.png";
 
 const Index = () => {
   return (
@@ -38,11 +38,23 @@ const Index = () => {
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Gamepad2 className="w-10 h-10 text-primary" />
+            <motion.img 
+              src={chikiiLogo} 
+              alt="Chikii" 
+              className="w-12 h-12 rounded-xl"
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
             <h1 className="font-orbitron text-4xl md:text-5xl font-bold text-foreground neon-text">
               CHIKII<span className="text-neon-pink">MOD</span>
             </h1>
-            <Gamepad2 className="w-10 h-10 text-neon-pink" />
+            <motion.img 
+              src={chikiiLogo} 
+              alt="Chikii" 
+              className="w-12 h-12 rounded-xl"
+              animate={{ rotate: [0, -5, 5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
           </motion.div>
           
           <motion.p 
