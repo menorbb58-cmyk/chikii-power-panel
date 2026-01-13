@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import CodeEffect from "./CodeEffect";
 import { soundManager } from "@/lib/sounds";
+import { useModSettingsContext } from "@/hooks/useModSettings";
 
 interface ModSwitchProps {
   label: string;
@@ -10,6 +11,7 @@ interface ModSwitchProps {
   icon?: React.ReactNode;
   variant?: "default" | "premium" | "danger";
   showCodeEffect?: boolean;
+  settingKey?: string;
 }
 
 const ModSwitch = ({ 
@@ -18,9 +20,15 @@ const ModSwitch = ({
   defaultChecked = false, 
   icon,
   variant = "default",
-  showCodeEffect = true
+  showCodeEffect = true,
+  settingKey
 }: ModSwitchProps) => {
-  const [checked, setChecked] = useState(defaultChecked);
+  const { getSetting, setSetting } = useModSettingsContext();
+  
+  // Use settingKey for persistence, fallback to local state
+  const key = settingKey || label.toLowerCase().replace(/\s+/g, "-");
+  const checked = getSetting(key, defaultChecked);
+  
   const [showEffect, setShowEffect] = useState(false);
 
   const getVariantStyles = () => {
@@ -52,8 +60,8 @@ const ModSwitch = ({
       soundManager.playDeactivate();
     }
     
-    setChecked(newChecked);
-  }, [checked, showCodeEffect]);
+    setSetting(key, newChecked);
+  }, [checked, showCodeEffect, key, setSetting]);
 
   const handleEffectComplete = useCallback(() => {
     setTimeout(() => {
