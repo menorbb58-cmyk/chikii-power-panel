@@ -38,53 +38,53 @@ const StatusBar = () => {
 
   return (
     <motion.div 
-      className="flex items-center justify-between px-4 py-2 bg-card/50 border-t border-border/50"
+      className="flex items-center justify-between px-2 sm:px-4 py-1.5 sm:py-2 bg-card/50 border-t border-border/50"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.4 }}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         <motion.div 
           className="flex items-center gap-1"
           animate={{ opacity: [1, 0.5, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <Shield className="w-4 h-4 text-neon-green" />
-          <span className="text-xs text-neon-green font-medium">PROTEGIDO</span>
+          <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-neon-green" />
+          <span className="text-[9px] sm:text-xs text-neon-green font-medium hidden xs:inline">PROTEGIDO</span>
         </motion.div>
         
         <div className="flex items-center gap-1">
           {isOnline ? (
-            <Wifi className="w-4 h-4 text-neon-cyan" />
+            <Wifi className="w-3 h-3 sm:w-4 sm:h-4 text-neon-cyan" />
           ) : (
-            <WifiOff className="w-4 h-4 text-destructive" />
+            <WifiOff className="w-3 h-3 sm:w-4 sm:h-4 text-destructive" />
           )}
-          <span className="text-xs text-muted-foreground">{getConnectionLabel()}</span>
+          <span className="text-[9px] sm:text-xs text-muted-foreground">{getConnectionLabel()}</span>
         </div>
 
         <div className="flex items-center gap-1">
-          <Signal className={`w-4 h-4 ${getPingColor()}`} />
-          <span className={`text-xs font-mono ${getPingColor()}`}>
+          <Signal className={`w-3 h-3 sm:w-4 sm:h-4 ${getPingColor()}`} />
+          <span className={`text-[9px] sm:text-xs font-mono ${getPingColor()}`}>
             {ping < 0 ? "ERR" : `${ping}ms`}
           </span>
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         <div className="flex items-center gap-1">
-          <Clock className="w-4 h-4 text-muted-foreground" />
-          <span className="text-xs font-orbitron text-muted-foreground">
+          <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
+          <span className="text-[9px] sm:text-xs font-orbitron text-muted-foreground">
             {time.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
         
         <div className="flex items-center gap-1">
           {isCharging ? (
-            <BatteryCharging className={`w-4 h-4 ${getBatteryColor()}`} />
+            <BatteryCharging className={`w-3 h-3 sm:w-4 sm:h-4 ${getBatteryColor()}`} />
           ) : (
-            <Battery className={`w-4 h-4 ${getBatteryColor()}`} />
+            <Battery className={`w-3 h-3 sm:w-4 sm:h-4 ${getBatteryColor()}`} />
           )}
-          <span className={`text-xs ${getBatteryColor()}`}>{battery}%</span>
+          <span className={`text-[9px] sm:text-xs ${getBatteryColor()}`}>{battery}%</span>
         </div>
       </div>
     </motion.div>

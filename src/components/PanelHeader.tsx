@@ -10,17 +10,17 @@ interface PanelHeaderProps {
 const PanelHeader = ({ title, version = "v3.0" }: PanelHeaderProps) => {
   return (
     <motion.div 
-      className="relative p-1 rounded-t-xl bg-gradient-to-r from-primary via-neon-pink to-neon-cyan"
+      className="relative p-0.5 sm:p-1 rounded-t-xl bg-gradient-to-r from-primary via-neon-pink to-neon-cyan"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center justify-between px-4 py-2 bg-dark-purple rounded-t-lg">
-        <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between px-2 sm:px-4 py-1.5 sm:py-2 bg-dark-purple rounded-t-lg">
+        <div className="flex items-center gap-2 sm:gap-3">
           <motion.img
             src={chikiiLogo}
             alt="Chikii"
-            className="w-10 h-10 rounded-lg"
+            className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg"
             animate={{ 
               scale: [1, 1.05, 1],
               rotate: [0, 2, -2, 0]
@@ -28,23 +28,23 @@ const PanelHeader = ({ title, version = "v3.0" }: PanelHeaderProps) => {
             transition={{ duration: 3, repeat: Infinity }}
           />
           <div>
-            <h1 className="font-orbitron font-bold text-lg text-foreground neon-text tracking-wider">
+            <h1 className="font-orbitron font-bold text-xs sm:text-lg text-foreground neon-text tracking-wider">
               {title}
             </h1>
-            <span className="text-xs text-neon-pink font-orbitron">{version}</span>
+            <span className="text-[9px] sm:text-xs text-neon-pink font-orbitron">{version}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <motion.span 
-            className="px-2 py-0.5 rounded text-xs font-orbitron bg-neon-green/20 text-neon-green border border-neon-green/50"
+            className="px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-xs font-orbitron bg-neon-green/20 text-neon-green border border-neon-green/50"
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             ATIVO
           </motion.span>
           
-          <div className="flex items-center gap-1 ml-4">
+          <div className="hidden sm:flex items-center gap-1 ml-4">
             <motion.button 
               className="p-1 hover:bg-muted/50 rounded transition-colors"
               whileHover={{ scale: 1.1 }}

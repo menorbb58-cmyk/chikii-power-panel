@@ -21,10 +21,10 @@ interface SidebarItemProps {
 const SidebarItem = ({ icon, label, active = false, onClick }: SidebarItemProps) => (
   <motion.button
     className={`
-      w-full p-3 rounded-lg flex flex-col items-center gap-1 transition-all duration-300
+      w-full p-2 sm:p-3 rounded-lg flex flex-col items-center gap-0.5 sm:gap-1 transition-all duration-300
       ${active 
         ? "bg-primary/20 border border-primary/50 neon-glow" 
-        : "hover:bg-muted/50 border border-transparent"
+        : "hover:bg-muted/50 border border-transparent active:bg-muted/70"
       }
     `}
     whileHover={{ scale: 1.05, x: 3 }}
@@ -34,7 +34,7 @@ const SidebarItem = ({ icon, label, active = false, onClick }: SidebarItemProps)
     <div className={`${active ? "text-primary" : "text-muted-foreground"} transition-colors`}>
       {icon}
     </div>
-    <span className={`text-xs font-medium ${active ? "text-primary" : "text-muted-foreground"}`}>
+    <span className={`text-[9px] sm:text-xs font-medium leading-tight ${active ? "text-primary" : "text-muted-foreground"}`}>
       {label}
     </span>
   </motion.button>
@@ -47,20 +47,20 @@ interface PanelSidebarProps {
 
 const PanelSidebar = ({ activeTab, onTabChange }: PanelSidebarProps) => {
   const menuItems = [
-    { id: "boost", icon: <Rocket className="w-5 h-5" />, label: "Boost" },
-    { id: "coins", icon: <Coins className="w-5 h-5" />, label: "Moedas" },
-    { id: "vip", icon: <Crown className="w-5 h-5" />, label: "VIP" },
-    { id: "games", icon: <Gamepad2 className="w-5 h-5" />, label: "Jogos" },
-    { id: "automation", icon: <Workflow className="w-5 h-5" />, label: "Auto" },
-    { id: "network", icon: <Wifi className="w-5 h-5" />, label: "Rede" },
-    { id: "security", icon: <Shield className="w-5 h-5" />, label: "Segurança" },
-    { id: "power", icon: <Zap className="w-5 h-5" />, label: "Power" },
-    { id: "settings", icon: <Settings className="w-5 h-5" />, label: "Config" },
+    { id: "boost", icon: <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Boost" },
+    { id: "coins", icon: <Coins className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Moedas" },
+    { id: "vip", icon: <Crown className="w-4 h-4 sm:w-5 sm:h-5" />, label: "VIP" },
+    { id: "games", icon: <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Jogos" },
+    { id: "automation", icon: <Workflow className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Auto" },
+    { id: "network", icon: <Wifi className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Rede" },
+    { id: "security", icon: <Shield className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Segurança" },
+    { id: "power", icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Power" },
+    { id: "settings", icon: <Settings className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Config" },
   ];
 
   return (
     <motion.div 
-      className="w-20 bg-card/30 border-r border-border/50 p-2 flex flex-col gap-1"
+      className="w-14 sm:w-20 bg-card/30 border-r border-border/50 p-1 sm:p-2 flex flex-col gap-0.5 sm:gap-1 overflow-y-auto scroll-container"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: 0.2 }}

@@ -60,7 +60,7 @@ const ChikiiPanel = () => {
         <div className="relative">
           {/* Animated border glow */}
           <motion.div 
-            className="absolute -inset-1 bg-gradient-to-r from-primary via-neon-pink to-neon-cyan rounded-xl blur-sm"
+            className="absolute -inset-0.5 sm:-inset-1 bg-gradient-to-r from-primary via-neon-pink to-neon-cyan rounded-xl blur-sm"
             animate={{ 
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -77,7 +77,7 @@ const ChikiiPanel = () => {
               
               {/* Main content area */}
               <motion.div 
-                className="flex-1 p-4 panel-bg cyber-grid min-h-[500px] relative overflow-hidden"
+                className="flex-1 p-2 sm:p-4 panel-bg cyber-grid min-h-[400px] sm:min-h-[500px] relative overflow-hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -85,8 +85,8 @@ const ChikiiPanel = () => {
                 {/* Scanline effect */}
                 <div className="absolute inset-0 scanline pointer-events-none" />
                 
-                {/* Content */}
-                <div className="relative z-10">
+                {/* Content with scrolling */}
+                <div className="relative z-10 h-full overflow-y-auto scroll-container max-h-[400px] sm:max-h-[500px] pr-1">
                   {renderContent()}
                 </div>
               </motion.div>
